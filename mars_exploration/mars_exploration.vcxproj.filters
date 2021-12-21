@@ -18,9 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="rover.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mission.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rover.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mission.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

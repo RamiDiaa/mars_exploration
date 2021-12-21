@@ -140,8 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="rover.cpp" />
+    <ClCompile Include="mission.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="mission.h" />
     <ClInclude Include="rover.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
