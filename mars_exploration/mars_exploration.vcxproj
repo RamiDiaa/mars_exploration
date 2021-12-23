@@ -142,8 +142,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="rover.cpp" />
     <ClCompile Include="mission.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="UI.h" />
     <ClInclude Include="mission.h" />
     <ClInclude Include="rover.h" />
   </ItemGroup>

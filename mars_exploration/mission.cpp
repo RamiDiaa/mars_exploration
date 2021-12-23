@@ -4,48 +4,88 @@
 
 
 
-mission::mission(char mtype, int eday, int id, float tloc, int sig) {
+mission::mission(char mtype,int id, int eday, float tloc,int mdur , int sig =0) {
+	MissionType = mtype;
+	ID = id;
+	ExecutionDay = eday;
+	TargetLocation = tloc;
+	MissionDuration = mdur;
+	Significance = sig;
 
 }
 
 
-void mission::setFormulationDay() {
-
-}
-int mission::getFormulaitonDay()const {
-
-}
 
 
-void mission::setMissionType() {
 
+
+void mission::setMissionType(char mt) {
+	MissionType = mt;
 }
 char mission::getMissionType()const {
-
+	return MissionType;
 }
 
 
-void mission::setTargetLocation() {
+void mission::setTargetLocation(float tl) {
+	TargetLocation = tl;
 
 }
 float mission::getTargetLocation()const {
-
+	return TargetLocation;
 }
 
 
-void mission::setMissionDuration() {
-
+void mission::setMissionDuration(int md) {
+	MissionDuration = md;
 }
 int mission::getMissionDuration()const {
-
+	return MissionDuration;
 }
 
 
-void mission::setsignificance() {
+void mission::setsignificance(int s) {
+	Significance = s;
 
 }
 int mission::getsignificance()const {
+	return Significance;
+}
 
+
+
+
+
+
+
+
+
+void mission::setFormulationDay(int fd) {
+	FormulationDay = fd;
+}
+int mission::getFormulationDay()const {
+	return FormulationDay;
+}
+
+void mission::setCompletionDay(int cd) {
+	CompletionDay = cd;
+}
+int mission::getComplitionDay()const {
+	return CompletionDay;
+}
+
+void mission::setExecutionDay(int ed) {
+	ExecutionDay = ed;
+}
+int mission::getExecutionDay()const {
+	return ExecutionDay;
+}
+
+void mission::setWaitingDays(int wd) {
+	WaitingDays = wd;
+}
+int mission::getWaitiongDays()const {
+	return WaitingDays;
 }
 
 

@@ -56,3 +56,13 @@ void rover::setMBEforeCheckup(int m) {
 int rover::getMBEforeCheckup() const {
 	return MBeforeCheckup;
 }
+
+
+void rover::setisInCheckup(bool b) {
+	isInCheckup = b;
+}
+bool rover::getisInCheckup() const {
+	return MBeforeCheckup;
+}
+
+

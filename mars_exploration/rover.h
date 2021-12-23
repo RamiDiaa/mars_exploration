@@ -12,6 +12,7 @@ private:
 
 	int ID;
 	int MBeforeCheckup;
+	bool isInCheckup;
 
 
 public:
@@ -31,6 +32,10 @@ public:
 
 	void setMBEforeCheckup(int);
 	int getMBEforeCheckup() const;
+
+	void setisInCheckup(bool);
+	bool getisInCheckup() const;
+
 
 };
 

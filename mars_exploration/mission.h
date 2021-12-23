@@ -4,39 +4,55 @@
 class mission {
 
 private:
-	int FormulationDay;
+	
 	char MissionType;
 	float TargetLocation;
 	int MissionDuration;
-	int significance;
+	int Significance;
 
-	int EventDay;
+	//int EventDay;
 	int ID;
-
+	
+	int FormulationDay;
 	int WaitingDays;
 	int ExecutionDay;
+	int CompletionDay;
+
+	//rover* rover;
 
 public:
-	mission(char mtype, int eday, int id, float tloc,int sig);
-
-	void setFormulationDay();
-	int getFormulaitonDay()const;
+	mission(char, int,int,float,int,int);
 
 
-	void setMissionType();
+	void setMissionType(char);
 	char getMissionType()const;
 
 
-	void setTargetLocation();
+	void setTargetLocation(float);
 	float getTargetLocation()const;
 
 
-	void setMissionDuration();
+	void setMissionDuration(int);
 	int getMissionDuration()const;
 
 
-	void setsignificance();
+	void setsignificance(int);
 	int getsignificance()const;
+
+
+
+
+	void setFormulationDay(int);
+	int getFormulationDay()const;
+
+	void setCompletionDay(int);
+	int getComplitionDay()const;
+
+	void setExecutionDay(int);
+	int getExecutionDay()const;
+
+	void setWaitingDays(int);
+	int getWaitiongDays()const;
 
 
 };
