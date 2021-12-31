@@ -1,4 +1,6 @@
 #include "UI.h"
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -9,20 +11,21 @@ void UI::load(ifstream& file, int event[] /*queue<event> event*/) {// file  ,  t
 	file.open("test.txt");
 	int numofeachroverT[3]; //M P E
 	float speedofeachroverT[3];//M P E
-	int missionbeforecheckup[3];//M P E
+	int missionsbeforecheckup[3];//M P E
 	int checkupduration;
 	int AutoP;
 	int numofevents;
 	for (int i = 0; i < 3; i++) {
 		file >> numofeachroverT[i];
 	}
-	
-	file >> checkupduration;
-
 	for (int i = 0; i < 3; i++) {
 		file >> speedofeachroverT[i];
 	}
+	for (int i = 0; i < 3; i++) {
+		file >> missionsbeforecheckup[i];
+	}
 
+	file >> checkupduration;
 	file >> AutoP;
 	file >> numofevents;
 

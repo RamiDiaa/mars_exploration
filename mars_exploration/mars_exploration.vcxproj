@@ -139,12 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CancelEvent.cpp" />
+    <ClCompile Include="Event.cpp" />
+    <ClCompile Include="FormulationEvent.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PromoteEvent.cpp" />
     <ClCompile Include="rover.cpp" />
     <ClCompile Include="mission.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CancelEvent.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="FormulationEvent.h" />
+    <ClInclude Include="PromoteEvent.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="mission.h" />
     <ClInclude Include="rover.h" />
