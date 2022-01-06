@@ -11,6 +11,18 @@ Station::Station()
 	PolarMissionsCount = 0;
 	waitingMissions = 0;
 	CheckupDuration = 0;
+
+
+	//r 
+	//for stats
+	for (int i; i < 3; i++) {
+		MissionsStat[i] =0;
+		RoversStat[i] = 0 ;
+	}
+	TotalWait = 0;
+	TotalExecution=0;
+	TotalPromotion=0;
+	//
 }
 
 int Station::getMountMissionCount()
@@ -83,7 +95,38 @@ bool Station ::assignPolarMission(int eventDay)
 
 }
 
+
+
+
+
+
+void Station::execute()
+{
+	UI ui;
+	ifstream inputfile;
+	inputfile.open("TEST.txt");
+	ui.load(inputfile, Events /*Queue<Event*>*/);
+	
+
+	
+
+
+
+
+
+
+	ofstream outputfile;
+	outputfile.open("OutputFile.txt");
+	ui.save(outputfile, MissionsCompleted /*Queue<mission>*/ , MissionsStat, RoversStat, TotalWait, TotalExecution, TotalPromotion);
+}
+
+
+
+
 Station::~Station()
 {
 
 }
+
+
+

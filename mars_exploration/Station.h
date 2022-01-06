@@ -47,8 +47,25 @@ private:
 	int waitingMissions;
 	int CheckupDuration;
 
+
+	//r
+	int MissionsStat[3];
+	int RoversStat[3];
+	int TotalWait;
+	int TotalExecution;
+	int TotalPromotion;
+	//
+
 public:
 	Station();
+
+	
+	
+	void execute();
+
+
+
+
 
 	int getMountMissionCount();
 	int getEventCount() const;

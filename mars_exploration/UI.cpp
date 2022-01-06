@@ -1,10 +1,11 @@
 #include "UI.h"
+
 #include <iostream>
 #include <fstream>
 
 using namespace std;
 
-void UI::load(ifstream& file, int event[] /*queue<event> event*/) {// file  ,  takes events list, rovers list to load values from the file to it
+void UI::load(ifstream& file, Queue<Event*>& events /*queue<event> event*/) {// file  ,  takes events list, rovers list to load values from the file to it
 
 	// take pointer and create rovers
 
@@ -41,8 +42,8 @@ void UI::load(ifstream& file, int event[] /*queue<event> event*/) {// file  ,  t
 
 			file >> ed >> id >> tloc >> mdur >> sig;
 
-			// formulation* f = new formulation(ed,id,tloc,mdur,sig);
-			// event[i] = f;  //enqueue
+			FormulationEvent* f = new FormulationEvent(eventtype, ed,id,tloc,mdur,sig); //(char MT, int ED, int ID, float TLOC, int MDUR, int SIG)
+			events.enqueue(f);  //enqueue //error
 
 
 		}
@@ -51,8 +52,8 @@ void UI::load(ifstream& file, int event[] /*queue<event> event*/) {// file  ,  t
 			int ed, id;
 			file >> ed >> id;
 
-			// cancel* x = new cancel(ed,id,tloc,mdur,sig);
-			// event[i] = x;  //enqueue
+			CancelEvent* x = new CancelEvent( ed, id);//, tloc, mdur, sig);
+			events.enqueue(x);  //enqueue
 
 		}
 		else if (eventtype = 'P'){
@@ -60,8 +61,8 @@ void UI::load(ifstream& file, int event[] /*queue<event> event*/) {// file  ,  t
 			int ed, id;
 			file >> ed >> id;
 
-			// promotion* p = new promotion(ed,id,tloc,mdur,sig);
-			// event[i] = p;  // enqueue
+			PromoteEvent* p = new PromoteEvent(ed,id);
+			events.enqueue(p);  // enqueue
 
 
 		}
@@ -69,24 +70,26 @@ void UI::load(ifstream& file, int event[] /*queue<event> event*/) {// file  ,  t
 
 	}
 
-
+	
 	file.close();	
 }
 
-void UI::save(ofstream& file, int missions[] /*queue<mission>completed missions*/,int MissionsStat[], int RoversStat[], int TotalWait,int TotalExecution,int TotalPromotion) {
-
+void UI::save(ofstream& file, PriorityQueue<mission*> missions /*queue<mission>completed missions*/,int MissionsStat[], int RoversStat[], int TotalWait,int TotalExecution,int TotalPromotion) {
+	mission* tempm = new mission();
 	file.open("outputfile.txt");
-
+	
 	file << "CD  ID  FD  WD  ED  \n";
 	int i = 0;
-	while (missions) {//while the queue is not empty
-		/*file  << missions[i].getrover()->getCompeletionDay() <<"  "
-				<< missions[i].getrover()->getID() << "  "
-				<< missions[i].getrover()->getFormulationDay() <<"  "
-				<< missions[i].getrover()->getWaitingDays() <<"  "
-				<< missions[i].getrover()->getExecutionDay() <<"  "
+	while (!missions.isEmpty()) {//while the queue is not empty
+		missions.dequeue(tempm);
+
+		file  << tempm->getCompletionDay() <<"  "
+				<< tempm->getID()<< "  "
+				<< tempm->getFormulationDay() <<"  "
+				<< tempm->getWaitingDays() <<"  "
+				<< tempm->getExecutionDay() <<"  "
 				<< endl;
-			*/
+			
 	}
 	file << "...........................\n";
 	file << "...........................\n";

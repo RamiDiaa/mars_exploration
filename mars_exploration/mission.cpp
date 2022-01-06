@@ -3,7 +3,7 @@
 
 
 
-
+mission::mission(){}
 mission::mission(char mtype,int id, int eday, float tloc,int mdur , int sig =0, rover* rover =nullptr) { // rover*) changed to rover* rover = nullptr)
 	MissionType = mtype;
 	ID = id;
@@ -15,7 +15,12 @@ mission::mission(char mtype,int id, int eday, float tloc,int mdur , int sig =0, 
 }
 
 
-
+void mission::setID(int i) {
+	ID = i;
+}
+int mission::getID()const {
+	return ID;
+}
 
 
 
@@ -52,14 +57,6 @@ int mission::getsignificance()const {
 	return Significance;
 }
 
-
-
-
-
-
-
-
-
 void mission::setFormulationDay(int fd) {
 	FormulationDay = fd;
 }
@@ -70,7 +67,7 @@ int mission::getFormulationDay()const {
 void mission::setCompletionDay(int cd) {
 	CompletionDay = cd;
 }
-int mission::getComplitionDay()const {
+int mission::getCompletionDay()const {
 	return CompletionDay;
 }
 
@@ -84,11 +81,13 @@ int mission::getExecutionDay()const {
 void mission::setWaitingDays(int wd) {
 	WaitingDays = wd;
 }
-int mission::getWaitiongDays()const {
+int mission::getWaitingDays()const {
 	return WaitingDays;
 }
 
-
+rover* mission::getRover()const {
+	return assignedRover;
+}
 
 //a
 

@@ -26,8 +26,12 @@ private:
 	rover* assignedRover;
 
 public:
+	mission();
+
 	mission(char, int,int,float,int,int, rover*);
 
+	void setID(int);
+	int getID()const;
 
 	void setMissionType(char);
 	char getMissionType()const;
@@ -51,16 +55,16 @@ public:
 	int getFormulationDay()const;
 
 	void setCompletionDay(int);
-	int getComplitionDay()const;
+	int getCompletionDay()const;
 
 	void setExecutionDay(int);
 	int getExecutionDay()const;
 
 	void setWaitingDays(int);
-	int getWaitiongDays()const;
+	int getWaitingDays()const;
 
 
-
+	rover* getRover()const;
 
 	//a
 	void assignRover(rover*, long);
