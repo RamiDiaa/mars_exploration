@@ -1,5 +1,6 @@
 #pragma once
-
+#include<iostream>
+#include"rover.h"
 
 class mission {
 
@@ -20,8 +21,12 @@ private:
 
 	//rover* rover;
 
+	//a
+	int EndDay;
+	rover* assignedRover;
+
 public:
-	mission(char, int,int,float,int,int);
+	mission(char, int,int,float,int,int, rover*);
 
 
 	void setMissionType(char);
@@ -55,6 +60,11 @@ public:
 	int getWaitiongDays()const;
 
 
+
+
+	//a
+	void assignRover(rover*, long);
+	int getEndday()const;
 };
 
 

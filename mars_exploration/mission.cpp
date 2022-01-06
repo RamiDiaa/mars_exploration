@@ -4,14 +4,14 @@
 
 
 
-mission::mission(char mtype,int id, int eday, float tloc,int mdur , int sig =0) {
+mission::mission(char mtype,int id, int eday, float tloc,int mdur , int sig =0, rover* rover =nullptr) { // rover*) changed to rover* rover = nullptr)
 	MissionType = mtype;
 	ID = id;
 	ExecutionDay = eday;
 	TargetLocation = tloc;
 	MissionDuration = mdur;
 	Significance = sig;
-
+	assignedRover = nullptr;
 }
 
 
@@ -89,6 +89,20 @@ int mission::getWaitiongDays()const {
 }
 
 
+
+//a
+
+int mission::getEndday() const
+{
+	return EndDay;
+}
+
+void mission::assignRover(rover* rV, long curDay)
+{
+	assignedRover = rV;
+	ExecutionDay = curDay;
+	EndDay = rV->getMissionOrCheckupEndDay();
+}
 
 
 

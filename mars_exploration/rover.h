@@ -15,6 +15,24 @@ private:
 	bool isInCheckup;
 
 
+	//a
+	int CheckupMissions;
+	int CheckupDays;
+	int overallDistance;
+
+
+	int missionDuration;
+	int missionLocation;
+	int missionOrCheckupEndDay;
+
+	int missionsNumber;
+	
+	bool needCheckup;
+	bool inMaintainance;
+	bool needMaintainance;
+
+
+
 public:
 	rover(char type,int checkupduration, float speed);
 
@@ -35,6 +53,14 @@ public:
 
 	void setisInCheckup(bool);
 	bool getisInCheckup() const;
+
+
+	//a
+	void reset();
+	void assignMission(int idMission, int duration, int location, long curDay);
+	void assignCheckup(long curDay);
+
+	int getMissionOrCheckupEndDay() const;
 
 
 };

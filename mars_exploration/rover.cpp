@@ -1,5 +1,5 @@
 #include "rover.h"
-
+#include <iostream> //r
 
 
 
@@ -63,6 +63,47 @@ void rover::setisInCheckup(bool b) {
 }
 bool rover::getisInCheckup() const {
 	return MBeforeCheckup;
+}
+
+
+
+
+//a
+void rover::reset()
+{
+	ID = -1;
+	missionDuration = -1;
+	missionOrCheckupEndDay = -1;
+	missionLocation = -1;
+
+}
+
+void rover::assignMission(int idMission, int duration, int location, long curDay)
+{
+	ID = idMission;
+	missionDuration = duration;
+	missionLocation = location;
+	missionOrCheckupEndDay = curDay + missionDuration + ceil((2 * (float(missionLocation / Speed)) / 25.0));
+
+	missionsNumber++;
+	if (missionsNumber % CheckupMissions == 0 && missionsNumber >= CheckupMissions)
+		needCheckup = true;
+	overallDistance += missionLocation;
+	if (overallDistance >= 1000 && missionsNumber >= 5)
+		needMaintainance = true;
+}
+
+void rover::assignCheckup(long curDay)
+{
+	isInCheckup = true;
+	reset();
+	missionOrCheckupEndDay = curDay + CheckupDays;
+	needCheckup = false;
+}
+
+int rover::getMissionOrCheckupEndDay() const
+{
+	return missionOrCheckupEndDay;
 }
 
 

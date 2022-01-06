@@ -146,13 +146,22 @@
     <ClCompile Include="PromoteEvent.cpp" />
     <ClCompile Include="rover.cpp" />
     <ClCompile Include="mission.cpp" />
+    <ClCompile Include="AutoPromotion.cpp" />
+    <ClCompile Include="MountainMission.cpp" />
+    <ClCompile Include="Station.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CancelEvent.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="FormulationEvent.h" />
+    <ClInclude Include="AutoPromotionEvent.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="MountainMission.h" />
+    <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="PromoteEvent.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Station.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="mission.h" />
     <ClInclude Include="rover.h" />
