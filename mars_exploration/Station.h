@@ -4,11 +4,44 @@
 #include"Event.h"
 #include"rover.h"
 #include"mission.h"
+
 #include"LinkedList.h"
 #include"Queue.h"
 #include"PriorityQueue.h"
+
 #include"UI.h"
+
+//atef 2
+#include"CancelEvent.h"
+#include"CompletionEvent.h"
+//
+#include"AutoPromotionEvent.h"
 using namespace std;
+
+
+
+
+
+
+
+
+
+
+
+class Event;
+enum ModeOpeartion
+{
+	Interactive,
+	step_by_step,
+	silent
+};
+//
+
+
+
+
+
+
 
 
 class Station
@@ -26,11 +59,16 @@ private:
 	Queue<rover*> PolarRoversINCheckup;
 	Queue<rover*> MountainRoversINCheckup;
 
-	PriorityQueue<mission*>EmergecnyMissions;
-	Queue<mission*>PolarMissions;
-	LinkedList<mission*>MountainMission;
+	
 	Queue<mission*>MissionsINExecution;
 	PriorityQueue<mission*>MissionsCompleted;
+
+	//atef 2
+	LinkedList<mission> WaitingMissions; // atef 2
+	LinkedList<rover*>unAvailableMaintainanceEmergency;
+	LinkedList<rover*>unAvailableMaintainancePolar;
+	LinkedList<rover*>unAvailableMaintainanceMountainous;
+	//
 
 	long currentDay=0;
 
@@ -44,9 +82,11 @@ private:
 	int PolarMissionsCount;
 	int MountainMissionsCount;
 
-	int waitingMissions;
+	//X  int waitingMissions;  X//
 	int CheckupDuration;
 
+
+	ModeOpeartion Mode; //atef 2
 
 	//r
 	int MissionsStat[3];
@@ -59,7 +99,12 @@ private:
 public:
 	Station();
 
+	//changed to public -- mustafa
+	PriorityQueue<mission*>EmergecnyMissions;
+	LinkedList<mission*>MountainMission;
+	Queue<mission*>PolarMissions;
 	
+	void simulate(); //atef 2
 	
 	void execute();
 
@@ -84,8 +129,24 @@ public:
 	bool assignPolarMission(int);
 
 	void addToCompletedMission();
+	void completeRover();// (int) removed --mustafa 
+	bool isCompleted(int);
+
+
+	//atef 2
+	int IndexOfMission(const mission& Mission);
+	void removeMission(int);
+
+	void addToCompletedMission();
 	void completeRover(int);
 	bool isCompleted(int);
+
+	//osama
+	void PromoteMountainToEmerg(int Missionid);
+	//
+
+
+
 
 	~Station();
 

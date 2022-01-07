@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CancelEvent.cpp" />
+    <ClCompile Include="CompeletionEvent.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="FormulationEvent.cpp" />
     <ClCompile Include="main.cpp" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CancelEvent.h" />
+    <ClInclude Include="CompletionEvent.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="FormulationEvent.h" />
     <ClInclude Include="AutoPromotionEvent.h" />

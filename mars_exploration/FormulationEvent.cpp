@@ -1,4 +1,5 @@
 #include "FormulationEvent.h"
+#include "mission.h" // m
 
 FormulationEvent::FormulationEvent(char MT, int ED, int ID, float TLOC, int MDUR, int SIG)
     :Event(ED, ID)
@@ -29,6 +30,15 @@ int FormulationEvent::GetMissionSIG() const
 
 void FormulationEvent::Execute()       //is that right or i should declare excute function in Formulationevent.h then use formulationevent before resolution scope instead of event
 {
-    
+    //m
+    mission* mis = new mission(MissionType, GetMissionid(), Geteventday(),
+        MissionTargetLocation, noofdaysinTarget, MissionSIG, nullptr);
+
+    if (MissionType == 'E')
+        station->EmergecnyMissions.enqueue(mis, mis->getEndday());
+    else if (MissionType == 'P')
+        station->PolarMissions.enqueue(mis);
+    else
+        station->MountainMission.insert(mis);
 
 }

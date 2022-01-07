@@ -65,7 +65,7 @@ public:
 
 	bool isEmpty()
 	{
-		if (front==nullptr)
+		if (front == nullptr)
 		{
 			return true;
 		}
@@ -92,7 +92,7 @@ public:
 
 	bool dequeue(E& head)
 	{
-		if (front==nullptr)
+		if (front == nullptr)
 		{
 			return false;
 		}
@@ -101,7 +101,7 @@ public:
 			Queue_Node<E>* temp = front;
 			head = temp->getItem();
 			front = front->getNext();
-			if (front==nullptr)
+			if (front == nullptr)
 			{
 				rear = nullptr;
 			}
@@ -109,20 +109,21 @@ public:
 		}
 	}
 
-	E peek()
+	E peek((E& item) // (E& item added atef 2
 	{
-		if (front==nullptr)
+		if (front == nullptr)
 		{
 			return nullptr;
 		}
 
 		return front->getItem();
-	
+
 	}
 
 	~Queue()
 	{
 
 	}
+
 };
 

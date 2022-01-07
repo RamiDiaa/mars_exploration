@@ -1,10 +1,17 @@
 #pragma once
 #include "Event.h"
-class CancelEvent :
-    public Event
+#include"Station.h"
+
+class CancelEvent : public Event
 {
+private:
+    int ID;
 
 public:
-    void Execute();
+
+    CancelEvent(int day, int id);
+    void Execute(Station* marsStation);
+    ~CancelEvent();
+
 };
 

@@ -48,6 +48,9 @@
     <ClCompile Include="MountainMission.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CompeletionEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rover.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="PriorityQueue.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CompletionEvent.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

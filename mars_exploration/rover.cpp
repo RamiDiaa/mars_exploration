@@ -107,3 +107,32 @@ int rover::getMissionOrCheckupEndDay() const
 }
 
 
+
+//atef 2
+bool rover::getneedCheckup() const
+{
+	return needCheckup;
+}
+
+void rover::setOutOfCheckup()
+{
+	inCheckup = false;
+}
+
+bool rover::getneedMaintainance() const
+{
+	return needMaintainance;
+}
+
+void rover::assignMaintainance(int curDay)
+{
+	reset();
+	missionsNumber = 0;
+	missionOrCheckupEndDay = curDay + CheckupDays;
+	needCheckup = false;
+	overallDistance = 0;
+	needMaintainance = false;
+}
+
+
+

@@ -32,6 +32,11 @@ private:
 	bool needMaintainance;
 
 
+	//atef 2
+	
+	
+	bool inCheckup;
+
 
 public:
 	rover(char type,int checkupduration, float speed);
@@ -62,6 +67,12 @@ public:
 
 	int getMissionOrCheckupEndDay() const;
 
+	//atef 2
+	bool getneedCheckup() const;
+	void setOutOfCheckup();
+
+	bool getneedMaintainance() const;
+	void assignMaintainance(int curDay);
 
 };
 

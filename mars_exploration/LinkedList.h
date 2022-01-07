@@ -1,4 +1,5 @@
 #pragma once
+
 #include<iostream>
 using namespace std;
 
@@ -20,7 +21,7 @@ public:
 	Node(T newItem)
 	{
 		next = nullptr;
-		item=newItem;
+		item = newItem;
 	}
 
 	Node<T>* getNext() const
@@ -64,7 +65,7 @@ public:
 
 	bool isEmpty()
 	{
-		if (head !=NULL)
+		if (head != NULL)
 		{
 			return false;
 		}
@@ -81,9 +82,30 @@ public:
 		Node<T>* newHead = head;
 		while (newHead)
 		{
-			c=c++;
+			c = c++;
 			newHead = newHead->getNext();
 		}
+	}
+
+	template<class itemType>
+	int getIndexOf(const itemType& target)const
+	{
+		bool found = false;
+		Node<itemType>* targetPtr = head;
+		int position = -1;
+		int count = 1;
+		while (!found && targetPtr)
+		{
+			if (targetPtr->getItem() == target)
+			{
+				found = true;
+				position = count;
+			}
+			else
+				targetPtr = targetPtr->getNext();
+			count++;
+		}
+		return position;
 	}
 
 	void insert(T newItem)
@@ -93,18 +115,18 @@ public:
 		head = Nhead;
 	}
 
-	void remove(Node<T>* Dhead, T Nitem)
+	void remove(Node<T>* Dhead, int Nitem)
 	{
 		Node<T>* ptr = head;
 		Nitem = Dhead->getItem();
-		if (head==Dhead)
+		if (head == Dhead)
 		{
 			head = head->getNext();
 		}
 		if (Dhead->getNext() == nullptr)
 		{
 			Node<T>* temp = head;
-			while (temp->getNext()!= nullptr)
+			while (temp->getNext() != nullptr)
 			{
 				temp = temp->getNext();
 			}
@@ -114,12 +136,12 @@ public:
 		Dhead->setItem(ptr->getItem());
 	}
 
-	void removeItem(T Ditem)
+	void removeItem(int Ditem)
 	{
 		Node<T>* temp = head;
 		while (temp)
 		{
-			if (temp->getItem()!=Ditem)
+			if (temp->getItem() != Ditem)
 			{
 				temp = temp->getNext();
 			}

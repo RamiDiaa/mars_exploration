@@ -3,9 +3,13 @@
 #include <iostream>
 #include <fstream>
 
+#include "FormulationEvent.h"
+#include "CancelEvent.h"
+#include "PromoteEvent.h"
+
 using namespace std;
 
-void UI::load(ifstream& file, Queue<Event*>& events /*queue<event> event*/) {// file  ,  takes events list, rovers list to load values from the file to it
+void UI::load(ifstream& file, Queue<Event*>& events, int roverstat[] ) {// file  ,  takes events list, rovers list to load values from the file to it
 
 	// take pointer and create rovers
 
@@ -19,6 +23,11 @@ void UI::load(ifstream& file, Queue<Event*>& events /*queue<event> event*/) {// 
 	for (int i = 0; i < 3; i++) {
 		file >> numofeachroverT[i];
 	}
+
+	for (int i = 0; i < 3; i++) {
+		roverstat[i] = numofeachroverT[i];
+	}
+
 	for (int i = 0; i < 3; i++) {
 		file >> speedofeachroverT[i];
 	}
@@ -120,3 +129,12 @@ void UI::save(ofstream& file, PriorityQueue<mission*> missions /*queue<mission>c
 
 
 }
+
+
+
+
+
+
+
+
+

@@ -20,5 +20,5 @@ int Event::GetMissionid() const
 //a
 void Event::setStation(Station* ptr)
 {
-	Mission = ptr;
+	station = ptr;// Mission //m
 }
